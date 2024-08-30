@@ -1,0 +1,59 @@
+npm i react-router-dom
+
+    ----------------------- Link ------------------------
+    LINK MOZE DA IMA SLEDECE PROPERTIJE
+    <Link> </Link>
+    replace - remove currently page and set new 
+    reloadDocument - reloaduje ceo app i daje sekciju na koju smo kliknuli
+    state - prosledjujemo datu kroz linkove ali se ta data ne pokazuje u url-u
+
+
+    --------------------- NavLink --------------------------
+    <NavLink> </NavLink> 
+    ima isActive classu
+
+    mozemo u css da stavimo samo .active {
+        color: "red";
+    }
+
+    a mozemo i direktno ovako
+    ako necemo da nam parrent bude active kad odem u children stavimo end
+
+    <NavLink end to="/" style={( {isActive} ) => { 
+        return isActive ? { color : "red" } : {}
+    }}
+    >
+    Home 
+    </NavLink>
+
+
+    ------------------- navigate ------------------
+
+    NOT FOUND PAGE DA REDIREKTUJE NA HOMEPAGE 
+    import { Navigate } from 'react-router-dom'
+      return <Navigate to="/" />
+
+
+
+    ----------------- useNavigate() -------------------
+                99% slucajeva se ovo koristi
+
+    const navigate = useNavigate()
+    if(validate){
+        navigate("/", opciono(replace, state...))
+        navigate(-1) => back
+        navigate(-2) => 2x back
+    }
+
+
+    ----------------- useSearchParams ------------------------
+    const [searchParams, setSearchParams] = useSearchParams({ n: 3 })
+
+    //get nam vadi vrednost kljuca n
+    console.log(searchParams.get('n'))  ========= 3
+
+    const number = searchParams.get('n')
+
+    
+    
+    ------------------ useLocation ------------------------

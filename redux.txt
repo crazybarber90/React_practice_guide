@@ -1,0 +1,18 @@
+npm install react-redux
+npm install @reduxjs/toolkit
+
+-----------------------------------------------------------------
+1 => store = global stejt
+unutar stora se nalaze slices
+
+-----------------------------------------------------------------
+2 => actions - 2 propertija, type i payload(optional)
+
+const increment = {type: "INCREMENT" }
+const decrement = {type: "DECREMENT" }
+
+const incrementByAmount = {type: "DECREMENT" , payload: 5}
+
+-----------------------------------------------------------------
+3 => reducers
+reduceri ne updejtuju direktno stejt, vec prave kopiju stejta, onda prave promene na kopiji stejta, i onda zamenjuju ceo stejt sa svim promenama
