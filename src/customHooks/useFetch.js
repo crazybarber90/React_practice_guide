@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const useFetch = (url) => {
+const useFetch = (url, key) => {
   const [data, setData] = useState(null)
   const [isPendig, setIsPending] = useState(true)
   const [error, setError] = useState(null)
@@ -17,7 +17,9 @@ const useFetch = (url) => {
           return res.json()
         })
         .then((data) => {
-          setData(data)
+          console.log('KLJUUUUUUC', data[key])
+
+          setData(key ? data[key] : data)
           setIsPending(false)
           setError(null)
         })
@@ -26,7 +28,8 @@ const useFetch = (url) => {
           setError(err.message)
         })
     }, 1000)
-  }, [url])
+    //
+  }, [url, key])
 
   // moze biti bilo koji tip podatka, array, object,boolean, string... sada je obj
   return { data, isPendig, error }

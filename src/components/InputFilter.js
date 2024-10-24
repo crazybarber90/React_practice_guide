@@ -57,7 +57,7 @@ const InputFilter = () => {
       <input
         style={{ width: '20%', padding: '10px 5px' }}
         type="text"
-        placeholder='"Search here...'
+        placeholder="Search here!"
         onChange={handleInputChange}
       />
 
